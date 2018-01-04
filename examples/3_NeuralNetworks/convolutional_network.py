@@ -26,7 +26,7 @@ batch_size = 128
 # Network Parameters
 num_input = 784 # MNIST data input (img shape: 28*28)
 num_classes = 10 # MNIST total classes (0-9 digits)
-dropout = 0.75 # Dropout, probability to keep units
+dropout = 0.25 # Dropout, probability to drop a unit
 
 
 # Create the neural network
@@ -46,7 +46,7 @@ def conv_net(x_dict, n_classes, dropout, reuse, is_training):
         # Max Pooling (down-sampling) with strides of 2 and kernel size of 2
         conv1 = tf.layers.max_pooling2d(conv1, 2, 2)
 
-        # Convolution Layer with 32 filters and a kernel size of 5
+        # Convolution Layer with 64 filters and a kernel size of 3
         conv2 = tf.layers.conv2d(conv1, 64, 3, activation=tf.nn.relu)
         # Max Pooling (down-sampling) with strides of 2 and kernel size of 2
         conv2 = tf.layers.max_pooling2d(conv2, 2, 2)
